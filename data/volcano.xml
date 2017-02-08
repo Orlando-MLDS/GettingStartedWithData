@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+<Number type="str">210010</Number>
+<Name type="str">West Eifel Volcanic Field</Name>
+<Country type="str">Germany</Country>
+<Region type="str">Mediterranean and Western Asia</Region>
+<Type type="str">Maar(s)</Type>
+<Activity_Evidence type="str">Eruption Dated</Activity_Evidence>
+<Last_Known_Eruption type="str">8300 BCE</Last_Known_Eruption>
+<Latitude type="str">50.17</Latitude>
+<Longitude type="str">6.85</Longitude>
+<key name="Elevation (Meters)" type="str">600</key>
+<Dominant_Rock_Type type="str">Foidite</Dominant_Rock_Type>
+<Tectonic_Setting type="str">Rift Zone / Continental Crust (&gt;25 km)</Tectonic_Setting>
+</root>
