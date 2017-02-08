@@ -1,0 +1,65 @@
+---
+title: "Loading Data"
+author: "Orlando MLDS"
+date: "2/8/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Getting Started with Data
+
+Example code blocks showing how to load various data types into R
+
+## .csv — Comma-Separated Values
+
+Desc
+
+```{r csv}
+
+```
+
+## .xls .xlsx — Excel Spreadsheet
+
+Desc
+
+```{r csv}
+
+```
+
+## .json — JavaScript Object Notation
+
+Desc
+
+```{r csv}
+
+```
+
+## .xml — eXtensible Markup Language
+
+Desc
+
+```{r csv}
+
+```
+
+## .yml .yaml — Yet Another Markup Language
+
+Desc
+
+```{r csv}
+
+```
+
+## .rda — R Data
+
+Desc
+
+```{r csv}
+dat <- [1, 2, 3, 4]
+save(dat, file = "data/mydata.rda")
+ls()
+dat <- load(file = "data/mydata.rda")
+```
