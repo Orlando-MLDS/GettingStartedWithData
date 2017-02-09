@@ -5,14 +5,13 @@ date: "2/8/2017"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-install.packages("knitr")
-install.packages("readxl")
-install.packages("jsonlite")
-install.packages("XML")
-install.packages("yaml")
-setwd("/Users/mdupont/Documents/GitHub/GettingStartedWithData")
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+# Check to see if all packages are present on system, if not, install them.
+pkgs <-c('knitr','readxl', 'jsonlite', 'XML', 'yaml')
+for(p in pkgs) if(p %in% rownames(installed.packages()) == FALSE) {install.packages(p, repos='http://cran.us.r-project.org')}
+for(p in pkgs) suppressPackageStartupMessages(library(p, quietly=TRUE, character.only=TRUE))
+options("getSymbols.warning4.0"=FALSE)
 ```
 
 # Getting Started with Data
@@ -23,8 +22,8 @@ Example code blocks showing how to load various data types into R
 
 Data type with the least overhead (aka file size) and very common
 
-```{r csv}
-csv_data = read.csv("data/volcanoes.csv")
+```{r}
+csv_data <- read.csv("data/volcanoes.csv")
 head(csv_data)
 ```
 
@@ -32,7 +31,7 @@ head(csv_data)
 
 Excel spreadsheets are more complicated than CSV (ex they can contain multiple datasets), but they still follow the 2D array format of a CSV and DataFrames
 
-```{r csv}
+```{r}
 require(readxl)
 xlsx_data <- read_excel("data/volcanoes.xlsx") #sheet=0
 head(xlsx_data)
@@ -42,7 +41,7 @@ head(xlsx_data)
 
 JSON is a common web and API communication format and easy to read
 
-```{r csv}
+```{r}
 library(jsonlite)
 json_data <- fromJSON("data/volcanoes.json")
 head(json_data)
@@ -52,8 +51,8 @@ head(json_data)
 
 XML looks and acts just like HTML. It is a popular web format but is being superseded by JSON
 
-```{r csv}
-require(XML)
+```{r}
+library(XML)
 xml_data <- xmlToDataFrame(xmlParse("data/volcano.xml"))
 xml_data
 ```
@@ -62,8 +61,8 @@ xml_data
 
 YAML has less overhead than JSON and can reference other objects within the same file to save space
 
-```{r csv}
-require(yaml)
+```{r}
+library(yaml)
 #yaml_data <- yaml.load_file("data/volcanoes.yml", handlers = list(map = function(x) { as.data.frame(x) }))
 #head(yaml_data)
 #Not yet working
@@ -73,7 +72,7 @@ require(yaml)
 
 R Data files allow us to save and restore binary copies of native language objects
 
-```{r csv}
+```{r}
 dat <- c(1,2,3,4)
 save(dat, file = "data/mydata.rda")
 dat <- load(file = "data/mydata.rda")
