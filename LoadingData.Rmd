@@ -32,7 +32,7 @@ head(csv_data)
 Excel spreadsheets are more complicated than CSV (ex they can contain multiple datasets), but they still follow the 2D array format of a CSV and DataFrames
 
 ```{r}
-require(readxl)
+library(readxl)
 xlsx_data <- read_excel("data/volcanoes.xlsx") #sheet=0
 head(xlsx_data)
 ```
@@ -63,9 +63,9 @@ YAML has less overhead than JSON and can reference other objects within the same
 
 ```{r}
 library(yaml)
-#yaml_data <- yaml.load_file("data/volcanoes.yml", handlers = list(map = function(x) { as.data.frame(x) }))
-#head(yaml_data)
-#Not yet working
+yaml_data <- yaml.load_file("data/volcanoes.yml", handlers = list(map = function(x) { as.data.frame(x) }))
+yaml_data <- do.call("rbind", yaml_data)
+head(yaml_data)
 ```
 
 ## .rda — R Data
